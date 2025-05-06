@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.OpenApi.Models;
 using SimpleCalculatorService.Security;
 using SimpleCalculatorService.Services;
@@ -80,12 +79,6 @@ namespace SimpleCalculatorService
                             new string[] {}
                         }
                     });
-                });
-
-                // Configure Kestrel server options
-                builder.WebHost.ConfigureKestrel(options =>
-                {
-                    options.ConfigureEndpointDefaults(x => x.Protocols = HttpProtocols.Http1);
                 });
 
                 var app = builder.Build();
