@@ -11,6 +11,7 @@ namespace SimpleCalculatorServiceTests
         public MyTestFixture()
         {
             var services = new ServiceCollection();
+            services.AddLogging();
             services.AddTransient<ICalculatorService, CalculatorService>(); 
 
             ServiceProvider = services.BuildServiceProvider();
